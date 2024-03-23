@@ -1,23 +1,57 @@
 function sumOfSquares(arr) {
-  return arr.reduce((sum, num) => sum + num * num, 0);
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i] * arr[i];
+  }
+  return sum;
 }
 
 function countEvenNumbers(arr) {
-  return arr.filter((num) => num % 2 === 0).length;
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      count++;
+    }
+  }
+  return count;
 }
 
 function findMaximum(arr) {
-  return Math.max(...arr);
+  let max = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  return max;
 }
 
 function customOperation(arr, callback) {
-  return arr.map(callback);
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    result.push(callback(arr[i]));
+  }
+  return result;
 }
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const numbers = [1, 2, 3, 4, 5];
 
-console.log("Sum of Squares:", sumOfSquares(numbers));
-console.log("Count of Even Numbers:", countEvenNumbers(numbers));
-console.log("Maximum Value:", findMaximum(numbers));
-const squares = customOperation(numbers, (num) => num * num);
-console.log("Squared Numbers:", squares);
+function square(num) {
+  return num * num;
+}
+
+function isEven(num) {
+  return num % 2 === 0;
+}
+
+function calculate(arr, callback) {
+  return callback(arr);
+}
+
+console.log("Sum of Squares:", calculate(numbers, sumOfSquares));
+console.log("Count Even Numbers:", calculate(numbers, countEvenNumbers));
+console.log("Find Maximum:", calculate(numbers, findMaximum));
+console.log(
+  "Custom Operation (Doubled):",
+  customOperation(numbers, (num) => num * 2)
+);
