@@ -19,10 +19,10 @@ function sortNumsAscending(arr) {
   }
 }
 
-
-const mixDataArray
+const mixDataArray = [1, 2, "Hi", true, { age: 12 }];
 const numberArray = [45, 34, 23, 12, 7];
 console.log(sortNumsAscending());
-console.log(sortNumsAscending(array)); 
-console.log(sortNumsAscending(123)); 
-console.log(sortNumsAscending("hello")); 
+console.log(sortNumsAscending(123));
+console.log(sortNumsAscending("hello"));
+console.log(sortNumsAscending(mixDataArray));
+console.log(sortNumsAscending(numberArray));
